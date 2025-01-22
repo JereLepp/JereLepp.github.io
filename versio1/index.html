@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page Website</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        nav { background: #333; padding: 10px; position: fixed; width: 100%; top: 0; left: 0; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        section { height: 100vh; padding: 60px 20px; }
+        .hero { background: lightblue; }
+        .about { background: lightgreen; }
+        .contact { background: lightcoral; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#hero">Etusivu</a>
+        <a href="#about">Tietoa</a>
+        <a href="#contact">Yhteystiedot</a>
+    </nav>
+    <section id="hero" class="hero">
+        <h1>Tervetuloa minun sivulle</h1>
+    </section>
+    <section id="about" class="about">
+        <h1>Tässä vähän tietoa</h1>
+    </section>
+    <section id="contact" class="contact">
+        <h1>Ja tässä yhteystietoja</h1>
+    </section>
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
